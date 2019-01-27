@@ -74,4 +74,18 @@ public class FrameSistema extends JFrame {
         // Insere a instancia de um JInternalFrame no DesktopPanel da aplicação
         desktop.add(frame);
     }
+    
+    public void abre(JInternalFrame janela) {
+        boolean bExiste = false;
+        for(JInternalFrame frame : desktop.getAllFrames()) {
+            if(janela.getTitle().equals(frame.getTitle())) {
+                bExiste = true;
+            }
+        }
+        
+        if(!bExiste) {
+            adicionaFrameInterno(janela);
+            janela.setVisible(true);
+        }
+    }
 }
